@@ -360,7 +360,7 @@ function calendorvalidation(){
     }
     let date=document.getElementById("dob").value;
      let agevalidation = calAge(date);
-    /*console.log(date);*/
+    /*console.lrfrwfog(date);*/
     if(date=="" )
     {document.getElementById('dob-warning').innerHTML="Please Give Date of Birth";
         document.getElementById('dob-warning').style.display="block";
