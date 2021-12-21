@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300&family=Hind:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="form container">
+    <form class="form-control">
+    <div class="written-details row">
+        <div class="asdf col-6" > NAME <input  type="text" id="name" placeholder="FirstName...."><span id="name-warning" class="warning">Name</span></div>
+        <div class="asdf col-6" > PHONE <input type="text" id="lastname"  placeholder="Number...."><span id="phone-warning" class="warning2">Phone</span></div>
+    </div>
+        <div class="written-details2 row">
+            <div class="asdf col-6">Email <input  type="email" id="email" placeholder="Email...."><span id="email-warning" class="warning">Email</span></div>
+            <div class="asdf col-6" >DATE OF BIRTH <input type="date" id="dob" min="1921-12-20" max="2010-12-20"><span id="dob-warning" class="warning2">DOB</span></div>
+        </div>
+        <div class="so row">
+            <div class="col-6" id="gender">
+                <h3>GENDER</h3>
+                <input type="radio" id="Male" name="gender" value="Male"><label for="Male">Male</label>
+                <input type="radio" id="Female"name="gender" value="Female"><label for="Female">Female</label>
+                <input type="radio" id="other"name="gender" value="Other" checked><label for="other">Other</label>
+            </div>
+        <div class="col-6" id="subject-options">
+            <h3>SUBJECTS</h3>
+            <input type="checkbox" name="subjects" id="English" value="English" checked><label for="English">English</label>
+            <input type="checkbox" name="subjects" id="Hindi" value="Hindi"><label for="Hindi">Hindi</label>
+            <input type="checkbox" name="subjects" id="Maths" value="Maths"><label for="Maths">Maths</label>
+            <input type="checkbox" name="subjects" id="Science" value="Science"><label for="Science">Science</label>
+            <input type="checkbox" name="subjects" id="SST" value="SST"><label for="SST">SST</label>
+            <input type="checkbox" name="subjects" id="Sanskrit" value="Sanskrit"><label for="Sanskrit">Sanskrit</label>
+            <input type="checkbox" name="subjects" id="Yoga" value="Yoga"><label for="Yoga">Yoga</label>
+            <input type="checkbox" name="subjects" id="Computer" value="Computer"><label for="Computer">Computer</label>
+        </div>
+        </div>
+    </form>
+   <div class="button">
+       <button type="button" onclick="checkvalidation(id)" id="submit" class="submit"> SUBMIT </button>
+       <button type="button" onclick="validationedit(id)" class="apply" > APPLY </button>
+
+   </div>
+</div>
+<div class="container">
+    <table class="table mt-5" id="tablebody">
+        <tr>
+            <td><b>Sno.</b></td>
+            <td><b>NAME</b></td>
+            <td><b>PHONE </b></td>
+            <td><b>GENDER</b></td>
+            <td><b>AGE</b></td>
+            <td><b>EMAIL</b></td>
+            <td><b>SUBJECTS</b></td>
+            <td colspan="2"><b>ACTION</b></td>
+        </tr>
+
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+<!--
+onmouseover="movEr()" onmouseout="movEout()"-->
