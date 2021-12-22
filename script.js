@@ -4,7 +4,19 @@ let id = 0;
 let a = document.getElementsByName('subjects');
 let gender = document.getElementsByName('gender');
 function checkvalidation(){
-    if(namevalidation()== false || phonevalidation() == false||  emailalidation()== false || calendorvalidation()== false)
+    // subjectsValidation()
+    let namevalidationcall = namevalidation();
+    let phonevalidationcall = phonevalidation();
+    let emailvalidationcall = emailalidation();
+    let agevalidationcall = calendorvalidation();
+    let subjectvalidationcall = subjectsValidation();
+    console.log(namevalidationcall);
+    console.log(phonevalidationcall);
+    console.log(emailvalidationcall);
+    console.log(agevalidationcall);
+    console.log(subjectvalidationcall);
+    // console.log(document.querySelectorAll("input[type=checkbox][name='subjects']:checked"));
+    if(!namevalidationcall || !phonevalidationcall || !emailvalidationcall || !agevalidationcall || !subjectvalidationcall)
     {
         return false;
     }
@@ -25,7 +37,12 @@ function checkvalidation(){
     }
 }
 function validationedit(id){
-    if(namevalidation(id)== false || phonevalidation(id) == false||  emailalidation(id)== false || calendorvalidation(id)== false)
+    let namevalidationcall = namevalidation();
+    let phonevalidationcall = phonevalidation();
+    let emailvalidationcall = emailalidation();
+    let agevalidationcall = calendorvalidation();
+    let subjectvalidationcall = subjectsValidation();
+    if(!namevalidationcall || !phonevalidationcall ||  !emailvalidationcall || !agevalidationcall || !subjectvalidationcall)
     {
         console.log("in apply false");
         return false;
@@ -86,7 +103,7 @@ function submit() {
             gender_value = gender[i].value;
         }
     }
-  let age = calAge(dob);
+    let age = calAge(dob);
     let a = document.getElementsByName('subjects');
     let subjects = [];
     for (var i = 0; i < a.length; i++) {
@@ -202,8 +219,8 @@ function editf(id) {
     applyset.setAttribute("id", id);
     applyset.setAttribute('onclick', 'validationedit(this.id)');
     applyset.style.display = "inline-block";
-let disablesumbit = document.getElementsByClassName('submit')[0];
-disablesumbit.style.display="none";
+    let disablesumbit = document.getElementsByClassName('submit')[0];
+    disablesumbit.style.display="none";
 }
 function apply(id) {
     function calAge(dobVal1) {
@@ -238,7 +255,7 @@ function apply(id) {
     arrayapply[0].age=ageapply;
     arrayapply[0].gender=gender_valueapply;
     arrayapply[0].subjects=electives;
-  let tableapply =  document.getElementById("rowid" + id).cells;
+    let tableapply =  document.getElementById("rowid" + id).cells;
     tableapply[1].innerHTML=nameapply;
     tableapply[2].innerHTML=surnameapply;
     tableapply[3].innerHTML=gender_valueapply;
@@ -250,12 +267,12 @@ function apply(id) {
     applyset.style.display = "none";
     enablesumbit.style.display="inline-block";
     clear();
- }
+}
 function serialnumber() {
     let rowcount=document.getElementById('tablebody').rows.length;
     for (let i=1; i<rowcount;i++)
     {
-     document.getElementById('tablebody').rows[i].cells[0].innerHTML = Number(i);
+        document.getElementById('tablebody').rows[i].cells[0].innerHTML = Number(i);
     }
 }
 function namevalidation(){
@@ -265,7 +282,7 @@ function namevalidation(){
         document.getElementById('name-warning').innerHTML="Please Type Name";
         document.getElementById('name-warning').style.display="block"
         document.getElementById("name").style.border = "1px solid red";
-    return false;}
+        return false;}
     else if (name.length > 30)
     {document.getElementById('name-warning').innerHTML="Word Limit Exceed :(";
         document.getElementById('name-warning').style.display="block"
@@ -297,13 +314,13 @@ function phonevalidation(){
     {document.getElementById('phone-warning').innerHTML="Please Type Phone Number";
         document.getElementById('phone-warning').style.display="block"
         document.getElementById("lastname").style.border = "1px solid red";
-    return false;}
+        return false;}
     else if (phone.length >0 && phone.length < 10 )
     {
         document.getElementById('phone-warning').innerHTML="Give a Valid Phone Number :(";
         document.getElementById('phone-warning').style.display="block"
         document.getElementById("lastname").style.border = "1px solid red";
-    return false;}
+        return false;}
     else {
         let regExp = /^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6789]\d{9}$/;
         let result = regExp.test(phone);
@@ -359,7 +376,7 @@ function calendorvalidation(){
         return Math.abs(ageDate.getUTCFullYear() - 1970);
     }
     let date=document.getElementById("dob").value;
-     let agevalidation = calAge(date);
+    let agevalidation = calAge(date);
     /*console.lrfrwfog(date);*/
     if(date=="" )
     {document.getElementById('dob-warning').innerHTML="Please Give Date of Birth";
@@ -379,3 +396,17 @@ function calendorvalidation(){
         document.getElementById('dob').style.border = "none";
         return true;}
 }
+function subjectsValidation(){
+    let subjectValueArray = document.querySelectorAll("input[type=checkbox][name='subjects']:checked");
+    let result = !subjectValueArray.length ? false : true;
+    if(result===false) {
+
+        document.getElementsByClassName('subject-warning')[0].style.display = "block";
+
+     }
+    else
+    {document.getElementsByClassName('subject-warning')[0].style.display = "none";
+    }
+    return result;
+}
+// console.log(document.querySelectorAll("input[type=checkbox][name='subjects']:checked"));
